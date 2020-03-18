@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Vacation Goals{% endblock title %}
+{% block body %}
+<div class="container">
+    <form action="{% url 'index' %}" method="post">
+        <center>
+            <h2>Goals</h2>
+        </center>
+        {% for goal in goals %}
+        <div class="row">
+            <center>
+                <div class="col">
+                    <input type="checkbox" class="form-check-input" name="{{goal.pk}}" id="{{goal.pk}}">
+                    <label for="{{goal.pk}}" class="form-check-lable">{{goal.goal}}</label>
+                </div>
+            </center>
+        </div>
+        {% endfor %}
+    </form>
+</div>
+{% endblock body %}
